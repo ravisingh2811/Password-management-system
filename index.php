@@ -88,7 +88,7 @@ if (!isset($_SESSION['email'])) {
            <table >
               <thead>
                <tr>
-               <!-- <th>id</th> -->
+               <th>sl no.</th>
                <th>Website</th>
                <th>user name</th>
                <th>password</th>
@@ -106,18 +106,22 @@ if (!isset($_SESSION['email'])) {
                    
                           $email_count = mysqli_num_rows($query);
 
+                          $i = 0;
+
                           while ($res = mysqli_fetch_array($query)){
 
                             // $decrypt = $res['password'];
                             $a = $res['password'];
                             $enc=decryptthis($a, $key);
                             // $enc = base64_decode();
+
+                            $i += 1;
                         
 
 
                         ?>
                             <tr style = "background:#f1c5c5;" >
-                            <!-- <td  ><?php // echo $res['id'];?></td> -->
+                            <td  ><?php  echo "$i" ?></td>
                        
                             <td><?php echo $res['website'];?></td>
                           
